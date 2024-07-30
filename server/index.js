@@ -8,10 +8,12 @@ import postRoute from "./routes/postRoute.js";
 import messageRoute from "./routes/messageRoute.js";
 import { v2 as cloud } from "cloudinary";
 import { app, server } from "./socket/socket.js";
+import job from "./cron/cron.js";
 
 dotenv.config();
 
 connectDB();
+job.start();
 
 const PORT = process.env.PORT || 5000;
 const __dirname = path.resolve();
